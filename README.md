@@ -1,4 +1,4 @@
-# Socket Client / Serveur Python
+# Socket Client / Serveur en Python
 
 🎯 Ce projet implémente une communication réseau basique via sockets TCP en Python.  
 
