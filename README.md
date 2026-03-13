@@ -8,11 +8,11 @@
 
 ## 🎯 Présentation
 
-Ce projet implémente une communication réseau basique via sockets TCP entre un serveur et un client en Python.  
+Ce projet illustre une communication réseau simple en **TCP** entre un serveur et un client Python.
 
-Le serveur crée un socket, se met en écoute sur une adresse IP et un port, puis accepte les connexions entrantes 🌐. 
-Le client crée un socket et se connecte au serveur **via IP:port** afin d’établir la communication.  
-Les échanges s’effectuent par envoi et réception de messages à l’aide des méthodes ```send()``` et ```recv()``` 📤📥.  
+- Le **serveur** Le serveur écoute sur **127.0.0.1:5000** et envoie l’heure courante au client.
+  
+- Le client se connecte, reçoit l’heure, l’affiche, puis ferme la connexion.
 
 ---
 
@@ -22,7 +22,7 @@ Les échanges s’effectuent par envoi et réception de messages à l’aide des
                 |       Serveur         |
                 |-----------------------|
                 |  socket()             |
-                |  bind(127.0.0.1,5000) |
+                |  bind(127.0.0.1:5000) |
                 |  listen()             |
                 |  accept() <-----------+
                 |  send(time)           |
@@ -32,15 +32,15 @@ Les échanges s’effectuent par envoi et réception de messages à l’aide des
                             |
                             | Connexion TCP
                             |
-                +-----------+-----------+
-                |        Client         |
-                |-----------------------|
-                |  socket()             |
-                |  connect(127.0.0.1) -->|
-                |  recv(time)           |
-                |  print()              |
-                |  close()              |
-                +-----------------------+
+                +-----------+-----------------+
+                |           Client            |
+                |-----------------------------|
+                |  socket()                   |
+                |  connect(127.0.0.1:5000) -->|
+                |  recv(time)                 |
+                |  print()                    |
+                |  close()                    |
+                +-----------------------------+
 ```
 ---
 
@@ -51,20 +51,23 @@ Les échanges s’effectuent par envoi et réception de messages à l’aide des
 python3 Server.py
 ```
 
-Le serveur :
-- ouvre un socket
-- écoute sur un port
-- attend une connexion entrante
+# Sortie
+```
+Serveur en écoute sur 127.0.0.1:5000
+Client connecté
+Heure envoyée : 14:32:51
+```
 
 # ▶️ Lancer le client
 ```
 python3 Client.py
 ```
 
-Le client :
-- se connecte au serveur via IP:port
-- envoie un message
-- reçoit la réponse
+# Sortie
+```
+Connexion au serveur...
+Heure reçue : 14:32:51
+```
 
 ---
 
@@ -102,6 +105,7 @@ sequenceDiagram
 ---
 
 ## 📝 Conclusion
+
 Ce projet constitue une base solide pour comprendre :
 - la création et gestion de sockets
 - les échanges TCP
