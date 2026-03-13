@@ -16,7 +16,7 @@ Les échanges s’effectuent par envoi et réception de messages à l’aide des
 
 ---
 
-🧩 Architecture client–serveur classique, à vocation pédagogique, pour comprendre les fondamentaux des communications réseau.
+## 🧩 Architecture client–serveur classique
 ```
                 +-----------------------+
                 |       Serveur         |
